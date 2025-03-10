@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/tim-online/go-exactonline/edm"
+	"github.com/omniboost/go-exactonline/edm"
 )
 
 // POST

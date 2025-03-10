@@ -1,6 +1,6 @@
 package salesentry
 
-import "github.com/tim-online/go-exactonline/rest"
+import "github.com/omniboost/go-exactonline/rest"
 
 const (
 	SalesEntriesEndpoint = "/v1/{division}/salesentry/SalesEntries"

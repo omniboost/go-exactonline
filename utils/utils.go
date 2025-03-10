@@ -10,7 +10,7 @@ import (
 
 	"github.com/aodin/date"
 	"github.com/gorilla/schema"
-	"github.com/tim-online/go-exactonline/odata"
+	"github.com/omniboost/go-exactonline/odata"
 )
 
 type SchemaMarshaler interface {

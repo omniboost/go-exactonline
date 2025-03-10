@@ -1,4 +1,4 @@
-package salesentry
+package purchaseentry
 
 import (
 	"context"
@@ -11,15 +11,15 @@ import (
 	"github.com/omniboost/go-exactonline/utils"
 )
 
-// SalesEntries endpoint
-// - https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SalesEntrySalesEntries
+// PurchaseEntries endpoint
+// - https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SalesEntryPurchaseEntries
 
 // GET
 
-func (s *Service) SalesEntriesGet(requestParams *SalesEntriesGetParams, ctx context.Context) (*SalesEntriesGetResponse, error) {
+func (s *Service) PurchaseEntriesGet(requestParams *PurchaseEntriesGetParams, ctx context.Context) (*PurchaseEntriesGetResponse, error) {
 	method := http.MethodGet
-	responseBody := s.NewSalesEntriesGetResponse()
-	path := s.rest.SubPath(SalesEntriesEndpoint)
+	responseBody := s.NewPurchaseEntriesGetResponse()
+	path := s.rest.SubPath(PurchaseEntriesEndpoint)
 
 	// create a new HTTP request
 	httpReq, err := s.rest.NewRequest(ctx, method, path, nil)
@@ -35,18 +35,18 @@ func (s *Service) SalesEntriesGet(requestParams *SalesEntriesGetParams, ctx cont
 	return responseBody, err
 }
 
-func (s *Service) NewSalesEntriesGetResponse() *SalesEntriesGetResponse {
-	return &SalesEntriesGetResponse{}
+func (s *Service) NewPurchaseEntriesGetResponse() *PurchaseEntriesGetResponse {
+	return &PurchaseEntriesGetResponse{}
 }
 
-type SalesEntriesGetResponse struct {
-	Results SalesEntries `json:"results"`
+type PurchaseEntriesGetResponse struct {
+	Results PurchaseEntries `json:"results"`
 }
 
-func (s *Service) NewSalesEntriesGetParams() *SalesEntriesGetParams {
+func (s *Service) NewPurchaseEntriesGetParams() *PurchaseEntriesGetParams {
 	selectFields, _ := utils.Fields(&SalesEntry{})
 	expandFields := []string{"SalesEntryLines"}
-	return &SalesEntriesGetParams{
+	return &PurchaseEntriesGetParams{
 		Select:  odata.NewSelect(selectFields),
 		Expand:  odata.NewExpand(expandFields),
 		Filter:  odata.NewFilter(),
@@ -55,7 +55,7 @@ func (s *Service) NewSalesEntriesGetParams() *SalesEntriesGetParams {
 	}
 }
 
-type SalesEntriesGetParams struct {
+type PurchaseEntriesGetParams struct {
 	// @TODO: check if this an OData struct or something
 	Select  *odata.Select  `schema:"$select,omitempty"`
 	Expand  *odata.Expand  `schema:"$expand,omitempty"`
@@ -64,10 +64,9 @@ type SalesEntriesGetParams struct {
 	OrderBy *odata.OrderBy `schema:"$orderby,omitempty"`
 }
 
-type SalesEntries []SalesEntry
+type PurchaseEntries []SalesEntry
 
 type SalesEntry struct {
-	EntryID                     edm.GUID        `json:"EntryID,omitempty"`           // The unique ID of the entry. Via this ID all transaction lines of a single entry can be retrieved
 	AmountDC                    edm.Double      `json:"AmountDC"`                    // Amount in the default currency of the company. For the header lines (LineNumber = 0) of an entry this is the SUM(AmountDC) of all lines
 	AmountFC                    edm.Double      `json:"AmountFC"`                    // Amount in the currency of the transaction. For the header this is the sum of all lines, including VAT
 	BatchNumber                 edm.Int32       `json:"BatchNumber"`                 // The number of the batch of entries. Normally a batch consists of multiple entries. Batchnumbers are filled for invoices created by: - Fixed entries - Prolongation (only available with module hosting)
@@ -214,3 +213,4 @@ type SalesEntryLine struct {
 func (l SalesEntryLine) MarshalJSON() ([]byte, error) {
 	return omitempty.MarshalJSON(l)
 }
+

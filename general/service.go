@@ -1,6 +1,6 @@
 package general
 
-import "github.com/tim-online/go-exactonline/rest"
+import "github.com/omniboost/go-exactonline/rest"
 
 func NewService(rest *rest.Client) *Service {
 	service := &Service{rest: rest}

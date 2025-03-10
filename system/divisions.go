@@ -6,8 +6,8 @@ import (
 	"net/url"
 
 	"github.com/gorilla/schema"
-	"github.com/tim-online/go-exactonline/edm"
-	"github.com/tim-online/go-exactonline/utils"
+	"github.com/omniboost/go-exactonline/edm"
+	"github.com/omniboost/go-exactonline/utils"
 )
 
 // Divisions endpoint

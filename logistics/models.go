@@ -1,8 +1,8 @@
 package logistics
 
 import (
-	"github.com/tim-online/go-exactonline/edm"
-	"github.com/tim-online/go-exactonline/omitempty"
+	"github.com/omniboost/go-exactonline/edm"
+	"github.com/omniboost/go-exactonline/omitempty"
 )
 
 type Items []Item

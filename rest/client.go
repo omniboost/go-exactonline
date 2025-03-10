@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tim-online/go-exactonline/utils"
+	"github.com/omniboost/go-exactonline/utils"
 )
 
 const (

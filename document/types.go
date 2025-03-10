@@ -1,6 +1,6 @@
 package document
 
-import "github.com/tim-online/go-exactonline/edm"
+import "github.com/omniboost/go-exactonline/edm"
 
 type Documents []Document
 

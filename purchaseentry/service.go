@@ -1,6 +1,6 @@
 package purchaseentry
 
-import "github.com/tim-online/go-exactonline/rest"
+import "github.com/omniboost/go-exactonline/rest"
 
 const (
 	PurchaseEntriesEndpoint = "/v1/{division}/purchaseentry/PurchaseEntries"

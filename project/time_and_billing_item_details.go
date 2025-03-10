@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/tim-online/go-exactonline/edm"
-	"github.com/tim-online/go-exactonline/utils"
+	"github.com/omniboost/go-exactonline/edm"
+	"github.com/omniboost/go-exactonline/utils"
 )
 
 const (

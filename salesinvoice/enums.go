@@ -1,6 +1,6 @@
 package salesinvoice
 
-import "github.com/tim-online/go-exactonline/edm"
+import "github.com/omniboost/go-exactonline/edm"
 
 const (
 	InvoiceTypeInvoice    InvoiceType = 8020

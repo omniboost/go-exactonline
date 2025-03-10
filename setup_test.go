@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"testing"
 
-	exact "github.com/tim-online/go-exactonline"
+	exact "github.com/omniboost/go-exactonline"
 	"golang.org/x/oauth2"
 )
 

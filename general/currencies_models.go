@@ -1,6 +1,6 @@
 package general
 
-import "github.com/tim-online/go-exactonline/edm"
+import "github.com/omniboost/go-exactonline/edm"
 
 type Currency struct {
 	Code            edm.String   `json:"Code"`            // Primary key

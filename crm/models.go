@@ -3,8 +3,8 @@ package crm
 import (
 	"encoding/json"
 
-	"github.com/tim-online/go-exactonline/edm"
-	"github.com/tim-online/go-exactonline/utils"
+	"github.com/omniboost/go-exactonline/edm"
+	"github.com/omniboost/go-exactonline/utils"
 )
 
 type Accounts []Account

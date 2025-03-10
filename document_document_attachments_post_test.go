@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	uuid "github.com/satori/go.uuid"
-	"github.com/tim-online/go-exactonline/document"
-	"github.com/tim-online/go-exactonline/edm"
+	"github.com/omniboost/go-exactonline/document"
+	"github.com/omniboost/go-exactonline/edm"
 )
 
 func TestDocumentAttachmentsPost(t *testing.T) {
