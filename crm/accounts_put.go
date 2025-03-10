@@ -10,19 +10,20 @@ import (
 
 // POST
 
-func (s *Service) AccountsPut(body *AccountsPutBody, ctx context.Context) error {
+func (s *Service) AccountsPut(body *AccountsPutBody, ctx context.Context) (*AccountsPutResponse, error) {
 	method := http.MethodPut
+	responseBody := s.NewAccountsPutResponse()
 	path := s.rest.SubPathWithID(AccountsEndpoint, body.ID.String())
 
 	// create a new HTTP request
 	httpReq, err := s.rest.NewRequest(ctx, method, path, body)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	// submit the request
-	_, err = s.rest.Do(httpReq, nil)
-	return err
+	_, err = s.rest.Do(httpReq, responseBody)
+	return responseBody, err
 }
 
 type AccountsPutBody struct {
@@ -135,3 +136,9 @@ func (s *Service) NewAccountsPutBody() *AccountsPutBody {
 func (b AccountsPutBody) MarshalJSON() ([]byte, error) {
 	return omitempty.MarshalJSON(b)
 }
+
+func (s *Service) NewAccountsPutResponse() *AccountsPutResponse {
+	return &AccountsPutResponse{}
+}
+
+type AccountsPutResponse Account
