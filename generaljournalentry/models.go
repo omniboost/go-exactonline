@@ -138,7 +138,7 @@ type NewGeneralJournalEntryLine struct {
 	ID            edm.GUID     `json:"ID,omitempty"`            // Primary key
 	Account       edm.GUID     `json:"Account,omitempty"`       // Reference to account
 	AmountFC      edm.Double   `json:"AmountFC,omitempty"`      // Amount in the currency of the transaction. If an 'Including' VAT code is used this amount includes the VAT amount.
-	AmountVATFC   edm.Double   `json:"AmountVATFC`   // Vat amount in the currency of the transaction. If you want to set this in a POST you have to specify VATCode as well.
+	AmountVATFC   *edm.Double  `json:"AmountVATFC,omitempty"`   // Vat amount in the currency of the transaction. If you want to set this in a POST you have to specify VATCode as well.
 	Asset         edm.GUID     `json:"Asset,omitempty"`         // Reference to asset
 	CostCenter    edm.String   `json:"CostCenter,omitempty"`    // Reference to cost center
 	CostUnit      edm.String   `json:"CostUnit,omitempty"`      // Reference to cost unit
